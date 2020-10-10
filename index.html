@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Vue.js Challenge</title>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            CEPRE UNCP
+        </h1>
+        <p>
+            <input type="text" placeholder="Titulo del curso" v-model="title"/>
+        </p>
+        <p>
+            <input type="number" placeholder="Horas" v-model="time"/>
+        </p>
+        <p>
+            <button @click="addCourse" class="btn-addCourse">Guardar Curso</button>
+        </p>
+        </fieldset>
+        <div>
+            <h3>Lista de Cursos</h3>
+            <p class="red" v-show="!courses.length">Aun no has realizado cursos</p>
+            <div v-show="courses.length">
+                <ol>
+                    <li v-for="c in courses"> <span>{{ c.title }} - {{ c.time }}hs.</span></li>
+                </ol>
+                <hr/>
+                <p>
+                Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en CEPREUNCP.
+                <b>Somos del centro, somos del Perú 👍🏻</b>
+                </p>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
